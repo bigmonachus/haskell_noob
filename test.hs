@@ -26,10 +26,6 @@ type ReviewBody = String
 
 data Review = Review BookInfo CustomerID ReviewBody
 
-data Vec2d = Vec2d Float Float
-           deriving (Eq, Show)
-
-
 data BinaryTree a = Node a (BinaryTree a) (BinaryTree a)
                   | Empty
                   deriving(Show)
@@ -40,7 +36,7 @@ data Person = Person {
             personName  :: String
             } deriving (Show)
 
-data BetterVec2d = V2f {
+data Vec2 = Vec2 {
                  x :: !Float,
                  y :: !Float
                  } deriving(Show)
@@ -49,10 +45,10 @@ mySecond (_:x:_)    = Just x
 mySecond _          = Nothing
 
 pluralize :: String -> [Int] -> [String]
-pluralize word counts = map plural counts where
-    plural 0 = "no " ++ word ++ "s"
-    plural 1 = "one " ++ word
-    plural n = show n ++ " " ++ word ++ "s"
+pluralize thing counts = map plural counts where
+    plural 0 = "no " ++ thing ++ "s"
+    plural 1 = "one " ++ thing
+    plural n = show n ++ " " ++ thing ++ "s"
 
 data Fruit = Apple | Orange
            deriving(Show)
@@ -71,6 +67,3 @@ treeHeight Empty        = 0
 treeHeight (Node _ b c) = 1 + treeHeight b + treeHeight c
 
 
---------------------------------------------------------------------------------
--- Chapter 4
---------------------------------------------------------------------------------
